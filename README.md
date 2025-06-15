@@ -1,7 +1,7 @@
 # AIPI 561 (Operationalizing AI) - Week 1 Project
 ### Author: Rajiv Raman
 ### Institution: Duke University
-### Date: April 30th, 2025
+### Date: June 15th, 2025
 
 ## Overview
 
