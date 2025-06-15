@@ -5,30 +5,30 @@
 
 ## Overview
 
-This project implements a lightweight conversational assistant using Amazon Bedrock's Titan model. It includes memory-aware prompt construction, error handling, and a testable API interface.
+This project implements a command-line conversational assistant using Amazon Bedrock's Titan model. The assistant supports message history, error handling, and a test suite with coverage.
 
 ## Features
 
-- Basic prompt management with 6-message conversation memory
-- Integration with Amazon Bedrock Titan model
-- Error handling with detailed failure messages
-- FastAPI-based REST endpoint (`/chat`)
-- Unit tests using `pytest` and `monkeypatch`
-- Test coverage reporting with `pytest-cov`
+- Uses `amazon.titan-text-premier-v1:0` via AWS Bedrock
+- Maintains 6-line conversation history
+- Simple interface via `run_chat.py` CLI
+- Graceful handling of API and permission errors
+- Modular class structure for testing and reuse
+- Pytest-based unit tests with coverage support
 
 ## File Overview
 
-- `chatbot.py` – Chat logic and prompt construction
-- `main.py` – FastAPI application for the chat endpoint
-- `tests/test_chatbot.py` – Unit tests for core logic
+- `chatbot.py` – `TitanChatBot` class for prompt building and model invocation
+- `run_chat.py` – CLI script for interacting with the chatbot
+- `tests/test_chatbot.py` – Unit tests for prompt logic and error handling
+- `requirements.txt` – Dependency list
 
 ## Requirements
 
 - boto3
-- fastapi
-- uvicorn
 - pytest
 - httpx
+- coverage (optional for test reporting)
 
 Install dependencies:
 
@@ -36,16 +36,21 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-## Running the API
+## Running the Chatbot
+
+Use the CLI script:
 
 ```bash
-uvicorn main:app --reload
+python run_chat.py
 ```
 
-Access Swagger UI at:
+Example output:
 
 ```
-http://127.0.0.1:8000/docs
+Titan Bedrock Chatbot (type 'exit' to quit)
+
+You: Tell me a joke
+AI: Why did the neural network go to therapy? It had too many layers.
 ```
 
 ## Running Tests
@@ -56,5 +61,7 @@ pytest --cov=.
 
 ## Notes
 
-- AWS credentials must be configured using `aws configure`
-- Ensure access to `amazon.titan-text-premier-v1:0` via Bedrock
+- Make sure you have AWS credentials configured via `aws configure`
+- The IAM user must have access to `amazon.titan-text-premier-v1:0`
+- Tests are mocked and do not require real AWS API calls
+
