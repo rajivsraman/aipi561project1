@@ -44,15 +44,6 @@ Use the CLI script:
 python run_chat.py
 ```
 
-Example output:
-
-```
-Titan Bedrock Chatbot (type 'exit' to quit)
-
-You: Tell me a joke
-AI: Why did the neural network go to therapy? It had too many layers.
-```
-
 ## Running Tests
 
 ```bash
