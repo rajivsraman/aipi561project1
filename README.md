@@ -1,4 +1,9 @@
-# Week 1 – Conversational AI Assistant
+# AIPI 561 (Operationalizing AI) - Week 1 Project
+### Author: Rajiv Raman
+### Institution: Duke University
+### Date: April 30th, 2025
+
+## Overview
 
 This project implements a lightweight conversational assistant using Amazon Bedrock's Titan model. It includes memory-aware prompt construction, error handling, and a testable API interface.
 
