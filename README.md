@@ -6,7 +6,7 @@ This project implements a lightweight conversational assistant using Amazon Bedr
 
 - Basic prompt management with 6-message conversation memory
 - Integration with Amazon Bedrock Titan model
-- Graceful error handling with detailed failure messages
+- Error handling with detailed failure messages
 - FastAPI-based REST endpoint (`/chat`)
 - Unit tests using `pytest` and `monkeypatch`
 - Test coverage reporting with `pytest-cov`
