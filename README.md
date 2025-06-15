@@ -1,24 +1,23 @@
 # Week 1 – Conversational AI Assistant
 
-A simple conversational AI assistant using Amazon Bedrock's Titan model. Includes basic memory, prompt construction, and error handling.
+This project implements a lightweight conversational assistant using Amazon Bedrock's Titan model. It includes memory-aware prompt construction, error handling, and a testable API interface.
 
 ## Features
 
-- Maintains a 6-message prompt history
-- Stateless, class-based chatbot design
-- Integration with Amazon Titan model via Bedrock Runtime API
-- Exception-safe model invocation
-- FastAPI REST endpoint for chat access
-- Unit tests with monkeypatching
-- Test coverage with `pytest-cov`
+- Basic prompt management with 6-message conversation memory
+- Integration with Amazon Bedrock Titan model
+- Graceful error handling with detailed failure messages
+- FastAPI-based REST endpoint (`/chat`)
+- Unit tests using `pytest` and `monkeypatch`
+- Test coverage reporting with `pytest-cov`
 
 ## File Overview
 
-- `chatbot.py`: Core chatbot logic
-- `main.py`: FastAPI API wrapper
-- `tests/test_chatbot.py`: Unit tests
+- `chatbot.py` – Chat logic and prompt construction
+- `main.py` – FastAPI application for the chat endpoint
+- `tests/test_chatbot.py` – Unit tests for core logic
 
-## Dependencies
+## Requirements
 
 - boto3
 - fastapi
@@ -26,7 +25,31 @@ A simple conversational AI assistant using Amazon Bedrock's Titan model. Include
 - pytest
 - httpx
 
-## Running
+Install dependencies:
 
-Start the API server:
+```bash
+pip install -r requirements.txt
+```
 
+## Running the API
+
+```bash
+uvicorn main:app --reload
+```
+
+Access Swagger UI at:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+## Running Tests
+
+```bash
+pytest --cov=.
+```
+
+## Notes
+
+- AWS credentials must be configured using `aws configure`
+- Ensure access to `amazon.titan-text-premier-v1:0` via Bedrock
